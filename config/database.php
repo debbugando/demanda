@@ -39,13 +39,27 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        /*'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'demanda'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'demanda'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],*/
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'us-cdbr-iron-east-05.cleardb.net'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'heroku_c47054eabcb5274'),
+            'username' => env('DB_USERNAME', 'bf8d63100b49e3'),
+            'password' => env('DB_PASSWORD', '056e9a03'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
