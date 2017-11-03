@@ -12,6 +12,7 @@
 	@if(empty($produtos))
 	<div class="alert alert-danger text-center">Sem Registros</div>
 	@else
+	<div class="table-responsive">
 	<table class="table table-stripped table-bordered table-hover table-responsive">
 		@foreach($produtos as $produto)
 		<tr class="{{$produto->quantidade <=1 ? 'danger' : ''}}">
@@ -19,11 +20,12 @@
 		<td>{{$produto->valor}}</td>
 		<td>{{$produto->descricao}}</td>
 		<td>{{$produto->quantidade}}</td>
-		<td><a href="{{action('ProdutoController@exibe', $produto->id) }}">Visualizar</a></td>
-		<td><a href="{{action('ProdutoController@remove', $produto->id )}}">Remover</a></td>
+		<td><a href="{{action('ProdutoController@exibe', $produto->id) }}" title="Visualizar"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+		<td><a href="{{action('ProdutoController@remove', $produto->id )}}" title="Remover"><i class="fa fa-times" aria-hidden="true"></i></a></td>
 		@endforeach
 		</tr>
 	</table>
+	</div>
 	<div class="label label-danger pull-right h4">
 	<strong>Sucesso!</strong>Um ou mais itens no Estoque</div>
 	@endif
