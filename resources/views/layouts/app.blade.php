@@ -77,12 +77,12 @@
         @yield('content')
         </div>
     </div>
-    <!-- footer -->
+    <!-- footer -->    
     <footer class="footer">
       <div class="container">
-        <p>© Leandro Viturino</p>
+        <span class="text-muted">© Leandro Viturino 2017</span>
       </div>
-  	</footer>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

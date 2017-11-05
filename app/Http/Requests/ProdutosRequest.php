@@ -26,9 +26,10 @@ class ProdutosRequest extends FormRequest
     {
         //Regras da Requisição
         return [
-            'nome'      => 'required|max:100',
-            'descricao' => 'required|max:255',
-            'valor'     => 'required|numeric'
+            'nome'       => 'required|max:100',
+            'descricao'  => 'required|max:255',
+            'valor'      => 'required|min:0|numeric',
+            'quantidade' => 'required|min:0|numeric'
         ];
     }
 }

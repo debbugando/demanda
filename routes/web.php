@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/', 'ProdutoController@lista')->name('produtos')->middleware('auth');
 //Home da Aplicação
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 //Listagem de Produtos
