@@ -12,6 +12,7 @@
 <h1>Novo produto</h1>
 <form action="{{action('ProdutoController@cadastra')}}" method="post">
 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+<input type="hidden" name="usuario_criou" value="{{ Auth::user()->id }}" />
 <div class="form-group">
 <label>Nome</label>
 <input name="nome" class="form-control" value="{{ old('nome') }}" />

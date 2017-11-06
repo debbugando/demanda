@@ -19,19 +19,19 @@
   <input type="hidden" name="id" value="{{ $produto->id }}" />
   <div class="form-group">
   <label>Nome</label>
-  <input type="text" name="nome" class="form-control" value="{{ (old('nome')) ? old('nome') : $produto->nome }}"  />
+  <input type="text" name="nome" class="form-control" value="{{ old('nome', $produto->nome) }}"  />
   </div>
   <div class="form-group">
   <label>Descricao</label>
-  <input type="text" name="descricao" class="form-control" value="{{ (old('descricao')) ? old('descricao') : $produto->descricao }}" />
+  <input type="text" name="descricao" class="form-control" value="{{ old('descricao',$produto->descricao) }}" />
   </div>
   <div class="form-group">
   <label>Valor</label>
-  <input type="number" step="any" name="valor" class="form-control" value="{{ (old('valor')) ? old('valor') : $produto->valor }}" />
+  <input type="number" step="any" name="valor" class="form-control" value="{{ old('valor', $produto->valor) }}" />
   </div>
   <div class="form-group">
   <label>Quantidade</label>
-  <input type="number" name="quantidade" class="form-control" value="{{ (old('quantidade')) ? old('quantidade') : $produto->quantidade }}"/>
+  <input type="number" name="quantidade" class="form-control" value="{{ old('quantidade', $produto->quantidade) }}"/>
   </div>
   <button type="submit"
   class="btn btn-primary btn-block">Editar</button>

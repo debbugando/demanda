@@ -23,6 +23,12 @@ class demandaTest extends TestCase
         $response->assertStatus(302);
     }
 
+    public function testCriaUser()
+    {
+        $this->user = factory(User::class)->create();
+        return $this->user;                       
+    }
+
     /**
      * Login utilizando o factory method para criar um usuário e logar no sistema
      * @return bool    
@@ -36,10 +42,20 @@ class demandaTest extends TestCase
         $response->assertStatus(200);                         
     }
 
+    public function testUsuarioLoga()
+    {
+        $this->testCriaUser();
+        $this->get('/login');
+        $this->type($this->user->email, 'email');
+        $this->type($this->user->password, 'password');
+        $this->press('Login');
+        $this->seePageIs(route('produtos'));
+    }
+
     public function testCriaProduto()
     {
         $produto = factory(Produto::class)->create();        
-        $response = $this->get('/produtos');
-        $response->assertStatus(200);                         
+        //$response = $this->get('/produtos');
+        //$response->assertStatus(200);                         
     }
 }

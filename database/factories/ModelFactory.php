@@ -25,9 +25,11 @@ $factory->define(demanda\User::class, function (Faker\Generator $faker) {
 
 $factory->define(demanda\Produto::class, function (Faker\Generator $faker) {
 	return [
+		'data' => date('Y-m-d H:i:s'),
         'nome' => $faker->word,
         'descricao' => $faker->word,
         'valor' => $faker->randomFloat,
         'quantidade' => $faker->randomNumber,
+        'usuario_criou' => 1,
     ];
 });

@@ -19,7 +19,7 @@ class ProdutoController extends Controller
     public function lista()
     {
 
-    	$produtos = Produto::all();
+    	$produtos = Produto::paginate(10);
     	//Busca todos os produtos
     	if(count($produtos)==0){
     		$produtos = null;
@@ -81,8 +81,8 @@ class ProdutoController extends Controller
      */
      public function edita($id)
      {
-         $produto = Produto::find($id);
-         return view('produto.formulario')->withProduto($produto);
+        $produto = Produto::find($id);
+        return view('produto.formulario')->withProduto($produto);
      }
 
      /**
@@ -91,30 +91,31 @@ class ProdutoController extends Controller
       */
      public function atualiza(ProdutosRequest $request)
      {
-         //Recebendo os valores enviados da requisição
-         $produto = Produto::find(Request::input('id'));
 
-         //Armazena os dados antigos para retorno da mensagem
-         $nomeAntigo = $produto->nome;
+        //Recebendo os valores enviados da requisição
+        $produto = Produto::find($request->id);       
 
-         $produto->nome       = Request::input('nome');
-         $produto->valor      = Request::input('valor');
-         $produto->descricao  = Request::input('descricao');
-         $produto->quantidade = Request::input('quantidade');
+        //Armazena os dados antigos para retorno da mensagem
+        $nomeAntigo = $produto->nome;
 
-         if($produto->save()){
+        $produto->nome       = $request->nome;
+        $produto->valor      = $request->valor;
+        $produto->descricao  = $request->descricao;
+        $produto->quantidade = $request->quantidade;
+
+        if($produto->save()){
            $msg = 'Produto Atualizado de '.$nomeAntigo.' Para: '.$produto->nome;
            $statusMsg = 'success';
-         }else{
+        }else{
            $msg = 'Erro ao Atualizar Produto '.$nomeAntigo;
            $statusMsg = 'danger';
-         }
+        }
 
-         //Retorna da mensagem no flashdata
-         \Session::flash('msg',$msg);
-         \Session::flash('statusMsg',$statusMsg);
-         //Redireciona para a listagem
-         return redirect()->action('ProdutoController@lista');
+        //Retorna da mensagem no flashdata
+        \Session::flash('msg',$msg);
+        \Session::flash('statusMsg',$statusMsg);
+        //Redireciona para a listagem
+        return redirect()->action('ProdutoController@lista');
      }
 
     /**

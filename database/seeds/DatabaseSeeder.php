@@ -22,19 +22,19 @@ class ProdutoTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::insert('insert into produtos
-		(nome, quantidade, valor, descricao)
-		values (?,?,?,?)',
-		array('Geladeira', 2, 5900.00,
-		'Side by Side com gelo na porta'));
+		(data,nome, quantidade, valor, descricao, usuario_criou)
+		values (?,?,?,?,?,?)',
+		array(date('Y-m-d H:i:s'),'Geladeira', 2, 5900.00,
+		'Side by Side com gelo na porta',1));
 		DB::insert('insert into produtos
-		(nome, quantidade, valor, descricao)
-		values (?,?,?,?)',
-		array('Fogão', 5, 950.00,
-		'Painel automático e forno elétrico'));
+		(data,nome, quantidade, valor, descricao,usuario_criou)
+		values (?,?,?,?,?,?)',
+		array(date('Y-m-d H:i:s'),'Fogão', 5, 950.00,
+		'Painel automático e forno elétrico',1));
 		DB::insert('insert into produtos
-		(nome, quantidade, valor, descricao)
-		values (?,?,?,?)',
-		array('Microondas', 1, 1520.00,
-		'Manda SMS quando termina de esquentar'));
+		(data,nome, quantidade, valor, descricao,usuario_criou)
+		values (?,?,?,?,?,?)',
+		array(date('Y-m-d H:i:s'),'Microondas', 1, 1520.00,
+		'Manda SMS quando termina de esquentar',1));
 	}
 }
