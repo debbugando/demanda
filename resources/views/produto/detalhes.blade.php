@@ -13,10 +13,11 @@
     </ul>
   </div>
   @endif
-  <h1>Produto {{$produto->nome}}</h1>
+  <h1>Detalhes Produto {{$produto->nome}}</h1>
   <form action="{{action('ProdutoController@atualiza')}}" method="post">
+  <input type="hidden" name="_method" value="PUT">
   <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-  <input type="hidden" name="id" value="{{ $produto->id }}" />
+  <input class="hidden" name="id" value="{{ $produto->id }}" />
   <div class="form-group">
   <label>Nome</label>
   <input type="text" name="nome" class="form-control" value="{{ old('nome', $produto->nome) }}"  />
@@ -33,8 +34,10 @@
   <label>Quantidade</label>
   <input type="number" name="quantidade" class="form-control" value="{{ old('quantidade', $produto->quantidade) }}"/>
   </div>
-  <button type="submit"
-  class="btn btn-primary btn-block">Editar</button>
+  <div class="form-group">
+    <button type="submit"
+    class="btn btn-primary btn-block">Editar</button>
+  </div>
   </form>
   @endif
 @stop

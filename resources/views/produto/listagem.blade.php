@@ -13,6 +13,17 @@
 	@else
 	<div class="table-responsive">
 	<table class="table table-stripped table-bordered table-hover table-responsive">
+		<thead>
+      <tr>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Descrição</th>
+				<th>Quantidade</th>
+				<th>Editar</th>
+				<th>Remover</th>
+      </tr>
+    </thead>
+    <tbody>
 		@foreach($produtos as $produto)
 		<tr class="{{$produto->quantidade <=1 ? 'danger' : ''}}">
 		<td>{{$produto->nome}}</td>
@@ -23,12 +34,13 @@
 		<td><a class="removeProduto" href="{{action('ProdutoController@remove', $produto->id )}}" title="Remover"><i class="fa fa-times" aria-hidden="true"></i></a></td>
 		@endforeach
 		</tr>
+	</tbody>
 	</table>
 	</div>
 	<div class="label label-danger pull-right h4">
 	<strong>Sucesso!</strong>Um ou mais itens no Estoque</div>
 	{{ $produtos->links() }}
-	@endif	
+	@endif
 @stop
 @section('custom_js')
 <script src="{{ asset('js/custom.js') }}"></script>

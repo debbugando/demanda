@@ -47,6 +47,8 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                         @else
+                            <li><a href="{{ action('UserController@lista')}}">Usuários</a></li>
+                            <li><a href="{{ action('UserController@formulario')}}">Cad. Usuários</a></li>
                             <li><a href="{{ action('ProdutoController@lista')}}">Produtos</a></li>
                             <li><a href="{{ action('ProdutoController@formulario')}}">Cad. Produto</a></li>
                             <li class="dropdown">
@@ -77,7 +79,7 @@
         @yield('content')
         </div>
     </div>
-    <!-- footer -->    
+    <!-- footer -->
     <footer class="footer">
       <div class="container">
         <span class="text-muted">© Leandro Viturino 2017</span>
@@ -85,6 +87,6 @@
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @yield('custom_js')    
+    @yield('custom_js')
 </body>
 </html>

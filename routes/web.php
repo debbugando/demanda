@@ -13,9 +13,21 @@
 
 Auth::routes();
 
+//Impede de entrar na register
+Route::match(['get', 'post'], 'register', function(){
+    return redirect('/');
+});
+
+//Base url cai na listagem de Produtos
 Route::get('/', 'ProdutoController@lista')->name('produtos')->middleware('auth');
 //Home da Aplicação
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+//Lista de usuário
+Route::get('/usuarios', 'UserController@lista')->middleware('auth');
+//Formulário de Cadatro de um novo Produto
+Route::get('/usuarios/formulario', 'UserController@formulario')->middleware('auth');
+//Adiciona novo Produto
+Route::post('/usuarios/cadastra', 'UserController@cadastra')->middleware('auth');
 //Listagem de Produtos
 Route::get('/produtos', 'ProdutoController@lista')->middleware('auth');
 //Detalhe de um Produto
@@ -29,4 +41,4 @@ Route::get('/produtos/remove/{id}', 'ProdutoController@remove')->middleware('aut
 //Formulário de Atuailização de Produto
 Route::get('/produtos/edita/{id}', 'ProdutoController@edita')->middleware('auth');
 //Atualizar Produto
-Route::post('/produtos/atualiza', 'ProdutoController@atualiza')->middleware('auth');
+Route::put('/produtos/atualiza', 'ProdutoController@atualiza')->middleware('auth');
