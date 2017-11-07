@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$/DXOCa.9y2R3GdqbcAPFUOHj17mNKD9oYuLotdm68O4PwAbtR6RZa', 'CkMseOsc5WMqAAhZGsaHxQgN5HXkfHIp5290BwGLxBbvfWZcjwF5uaj8tBGP', '2017-11-06 16:35:06', '2017-11-06 16:35:06'),
+(1, 'Admin', 'admin@email.com', '$2y$10$/DXOCa.9y2R3GdqbcAPFUOHj17mNKD9oYuLotdm68O4PwAbtR6RZa', 'rLlHqtaI0zjxFumPf9ZvcO1z8hdTPrLYFW0h1rTvwzxYoQOWgwSXzHIlPUI0', '2017-11-06 16:35:06', '2017-11-06 16:35:06'),
 (2, 'Mrs. Beth Maggio II', 'arvel20@example.com', '$2y$10$E5G89Cqg5hBlyW/4ng/QKuFqvxp06MY7G7fn6cAYA1BARZBDPBlku', 'Eheup7BI5z', '2017-11-06 18:21:41', '2017-11-06 18:21:41'),
 (3, 'Mr. Jackson Reichel I', 'jane.rempel@example.net', '$2y$10$jmJ7yLybPhFPuVocztnYz.skjf8yz.Umue2SpMmbDcvd2PR66Ok4y', '0KGSGTchN6', '2017-11-06 18:43:38', '2017-11-06 18:43:38'),
 (4, 'Ivory Gerlach', 'joel.schoen@example.com', '$2y$10$2mn8uJxqMZQoejozmSY8KeARYYdHHlSeESyrScmdml2NKPi/JdLxm', 'joUviGrc2f', '2017-11-06 18:52:51', '2017-11-06 18:52:51'),
