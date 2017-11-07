@@ -14,27 +14,27 @@
 	<div class="table-responsive">
 	<table class="table table-stripped table-bordered table-hover table-responsive">
 		<thead>
-      <tr>
-        <th>Nome</th>
-        <th>Valor</th>
-        <th>Descrição</th>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Valor</th>
+	      <th>Descrição</th>
 				<th>Quantidade</th>
 				<th>Editar</th>
 				<th>Remover</th>
-      </tr>
-    </thead>
-    <tbody>
-		@foreach($produtos as $produto)
-		<tr class="{{$produto->quantidade <=1 ? 'danger' : ''}}">
-		<td>{{$produto->nome}}</td>
-		<td>{{$produto->valor}}</td>
-		<td>{{$produto->descricao}}</td>
-		<td>{{$produto->quantidade}}</td>
-		<td><a class="alteraProduto" href="{{action('ProdutoController@exibe', $produto->id) }}" title="Visualizar"><i class="fa fa-search" aria-hidden="true"></i></a></td>
-		<td><a class="removeProduto" href="{{action('ProdutoController@remove', $produto->id )}}" title="Remover"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-		@endforeach
-		</tr>
-	</tbody>
+	    </tr>
+	  </thead>
+	  <tbody>
+			@foreach($produtos as $produto)
+			<tr class="{{$produto->quantidade <=1 ? 'danger' : ''}}">
+				<td>{{$produto->nome}}</td>
+				<td>{{$produto->valor}}</td>
+				<td>{{$produto->descricao}}</td>
+				<td>{{$produto->quantidade}}</td>
+				<td><a class="alteraProduto" href="{{action('ProdutoController@exibe', $produto->id) }}" title="Visualizar"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+				<td><a class="removeProduto" href="{{action('ProdutoController@remove', $produto->id )}}" title="Remover"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+			@endforeach
+			</tr>
+		</tbody>
 	</table>
 	</div>
 	<div class="label label-danger pull-right h4">

@@ -13,10 +13,10 @@
 
 Auth::routes();
 
-//Impede de entrar na register
-Route::match(['get', 'post'], 'register', function(){
-    return redirect('/');
-});
+//Impede de entrar no registro de usuários e nas recuperações do cadastro
+Route::match(['get', 'post'], 'register', function(){ return redirect('/'); });
+Route::match(['get', 'post'], 'passoword/email', function(){ return redirect('/'); });
+Route::match(['get', 'post'], 'password/reset', function(){ return redirect('/'); });
 
 //Base url cai na listagem de Produtos
 Route::get('/', 'ProdutoController@lista')->name('produtos')->middleware('auth');

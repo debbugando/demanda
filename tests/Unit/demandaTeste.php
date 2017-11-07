@@ -7,13 +7,17 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use demanda\User;
 
+/**
+ * Classe Teste utilizando o Unit porém sem sucesso, utilizei o Laravel/Dusk
+ * @var array
+ */
 class demandaTest extends TestCase
-{    
-    
+{
+
 	protected $user;
     /**
      * Verifica se o usuário possui sessão no sistem, senão redireciona para o login
-     * @return bool    
+     * @return bool
      */
     public function testUsuarioSemSessao()
     {
@@ -23,14 +27,14 @@ class demandaTest extends TestCase
 
     /**
      * Login utilizando o factory method para criar um usuário e logar no sistema
-     * @return bool    
+     * @return bool
      */
     public function testLoginSessao()
     {
-        $this->user = factory(User::class)->create();        
+        $this->user = factory(User::class)->create();
         $response = $this->actingAs($this->user,'api')
                          ->withSession(['foo' => 'bar'])
                          ->get('/');
-        $response->assertStatus(200);                         
+        $response->assertStatus(200);
     }
 }

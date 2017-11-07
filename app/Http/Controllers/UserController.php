@@ -7,6 +7,9 @@ use demanda\User;
 use Request;
 use demanda\Http\Requests\UsersRequest;
 
+/**
+* Classe dos USuários
+*/
 class UserController extends Controller
 {
 
@@ -16,7 +19,9 @@ class UserController extends Controller
     */
     public function lista()
     {
+      //Busca produtos paginando por 10 resultados
       $usuarios = User::paginate(10);
+      //Verifica se retornou resultado, senão esvazia o array para exibir "sem registros"
       if(count($usuarios)==0){
     		$usuarios = null;
     	}

@@ -18,8 +18,9 @@ class ProdutoController extends Controller
      */
     public function lista()
     {
+      //Busca produtos paginando por 10 resultados
       $produtos = Produto::paginate(10);
-    	//Busca todos os produtos
+    	//Verifica se retornou resultado, senão esvazia o array para exibir "sem registros"
     	if(count($produtos)==0){
     		$produtos = null;
     	}
@@ -35,7 +36,7 @@ class ProdutoController extends Controller
     {
     	//Busca o produto do id enviado
     	$produto = Produto::find($id);
-    	//Busca todos os produtos
+    	//Verifica se retornou resultado, senão esvazia o array para exibir "sem registros"
     	if(count($produto)==0){
     		$produto = null;
     	}
@@ -80,7 +81,9 @@ class ProdutoController extends Controller
      */
      public function edita($id)
      {
+        //Busca produto pelo id enviado
         $produto = Produto::find($id);
+        //Retorna resultado para a view
         return view('produto.formulario')->withProduto($produto);
      }
 
@@ -92,7 +95,7 @@ class ProdutoController extends Controller
      {
         //Recebendo os valores enviados da requisição
         $produto = Produto::find($request->id);
-        
+
         if(!empty($produto)){
           //Armazena os dados antigos para retorno da mensagem
           $nomeAntigo = $produto->nome;
@@ -128,7 +131,8 @@ class ProdutoController extends Controller
      */
      public function remove($id)
      {
-     	$produto = Produto::find($id);
+       //Busca produto pelo id enviado
+       $produto = Produto::find($id);
 
        //Verifica se o produto foi removido e retorna a mensagem de acordo
        if($produto->delete()){

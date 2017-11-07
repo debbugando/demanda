@@ -9,13 +9,17 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use demanda\User;
 use demanda\Produto;
 
+/**
+ * Classe Teste porém sem sucesso, utilizei o Laravel/Dusk
+ * @var array
+ */
 class demandaTest extends TestCase
-{    
-    
+{
+
     protected $user;
     /**
      * Verifica se o usuário possui sessão no sistem, senão redireciona para o login
-     * @return bool    
+     * @return bool
      */
     public function testUsuarioSemSessao()
     {
@@ -26,20 +30,20 @@ class demandaTest extends TestCase
     public function testCriaUser()
     {
         $this->user = factory(User::class)->create();
-        return $this->user;                       
+        return $this->user;
     }
 
     /**
      * Login utilizando o factory method para criar um usuário e logar no sistema
-     * @return bool    
+     * @return bool
      */
     public function testLoginSessao()
     {
-        $this->user = factory(User::class)->create();        
+        $this->user = factory(User::class)->create();
         $response = $this->actingAs($this->user,'api')
                          ->withSession(['foo' => 'bar'])
                          ->get('/');
-        $response->assertStatus(200);                         
+        $response->assertStatus(200);
     }
 
     public function testUsuarioLoga()
@@ -54,8 +58,8 @@ class demandaTest extends TestCase
 
     public function testCriaProduto()
     {
-        $produto = factory(Produto::class)->create();        
+        $produto = factory(Produto::class)->create();
         //$response = $this->get('/produtos');
-        //$response->assertStatus(200);                         
+        //$response->assertStatus(200);
     }
 }

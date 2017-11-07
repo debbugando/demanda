@@ -4,6 +4,10 @@ namespace demanda;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Classe model do Produto
+ * @var array
+ */
 class Produto extends Model
 {
   //Tabela utilizada

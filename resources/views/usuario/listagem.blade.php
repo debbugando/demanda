@@ -19,6 +19,7 @@
       </tr>
     </thead>
     <tbody>
+    {{-- Loop dos usuários encontrados --}}
 		@foreach($usuarios as $usuario)
 		<tr>
 		<td>{{$usuario->name}}</td>
