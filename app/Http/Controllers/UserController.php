@@ -44,7 +44,12 @@ class UserController extends Controller
     public function cadastra(UsersRequest $request)
     {
       //Recebendo os valores enviados da requisição e inserindo pelo factory method
-    	if(User::create($request->all())){
+      $usuario = User::create([
+          'name' => $request->name,
+          'email' => $request->email,
+          'password' => bcrypt($request->password),
+      ]);
+    	if(!empty($usuario)){
         $msg = 'Usuario '.$request->name.' Inserido';
         $statusMsg = 'success';
       }else{
