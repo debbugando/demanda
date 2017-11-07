@@ -30,7 +30,7 @@ class DemandaTest extends DuskTestCase
      * @return bool
      */
     public function testUsuarioInvalido()
-    {        
+    {
         $this->browse(function ($browser) {
             $browser->visit('/login')
                     ->type('email', 'teste@xpto.com')
@@ -118,7 +118,8 @@ class DemandaTest extends DuskTestCase
     public function testEncerraSessao()
     {
         $this->browse(function ($browser) {
-            $browser->visit('/logout')
+            $browser->click('.dropDownUser')
+                    ->click('#logout')
                     ->assertSee('Login')
                     ->assertPathIs('/login');
         });

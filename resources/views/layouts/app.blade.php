@@ -51,7 +51,7 @@
                             <li><a href="{{ action('UserController@formulario')}}">Cad. Usuários</a></li>
                             <li><a href="{{ action('ProdutoController@lista')}}">Produtos</a></li>
                             <li><a href="{{ action('ProdutoController@formulario')}}">Cad. Produto</a></li>
-                            <li class="dropdown">
+                            <li class="dropdown dropDownUser">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -59,6 +59,7 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
+                                          id="logout"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
