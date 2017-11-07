@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -46,6 +47,8 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                         @else
+                            <li><a href="{{ action('UserController@lista')}}">Usuários</a></li>
+                            <li><a href="{{ action('UserController@formulario')}}">Cad. Usuários</a></li>
                             <li><a href="{{ action('ProdutoController@lista')}}">Produtos</a></li>
                             <li><a href="{{ action('ProdutoController@formulario')}}">Cad. Produto</a></li>
                             <li class="dropdown">
@@ -79,10 +82,11 @@
     <!-- footer -->
     <footer class="footer">
       <div class="container">
-        <p>© Leandro Viturino</p>
+        <span class="text-muted">© Leandro Viturino 2017</span>
       </div>
-  	</footer>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('custom_js')
 </body>
 </html>
